@@ -17,8 +17,9 @@ export default function Modal({ isOpen, onClose, img, imgAlt, titre, annee, desc
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       onClick={handleClickOutside}  // Clic sur l'extérieur de la modale
     >
-        <div ref={modalRef} className="bg-white w-4/5 max-h-[80%] overflow-y-scroll p-4 rounded shadow-lg">
-            <img src={img} alt={imgAlt} className="w-full h-auto rounded mb-4" />
+        <div ref={modalRef} className="bg-white max-w-[90vw] max-h-[75svh] overflow-y-scroll p-4 rounded shadow-lg">
+            <img src={img} alt={imgAlt} className="w-full max-h-96 object-scale-down rounded mb-4" />
+
             <h2 className="text-xl font-semibold">{titre}</h2>
             <p className="text-gray-600">{annee}</p>
             <p className="mt-2">{desc}</p>
@@ -29,11 +30,11 @@ export default function Modal({ isOpen, onClose, img, imgAlt, titre, annee, desc
 }
 
 Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  img: PropTypes.string.isRequired,
-  imgAlt: PropTypes.string.isRequired,
-  titre: PropTypes.string.isRequired,
-  annee: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  img: PropTypes.string,
+  imgAlt: PropTypes.string,
+  titre: PropTypes.string,
+  annee: PropTypes.string,
+  desc: PropTypes.string,
 };

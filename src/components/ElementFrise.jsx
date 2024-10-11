@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
 
-export default function ElementFrise({ img, imgAlt, titre, annee, onClick }) {
-    
+export default function ElementFrise({ 
+    img, 
+    imgAlt = "Monument Malgré-nous", 
+    titre, 
+    annee, 
+    onClick,
+    dataAos
+}) {
     return (
-        <div className="elementFrise" onClick={onClick}>
+        <div className="elementFrise" onClick={onClick} data-aos={dataAos}>
             <div className='point'></div>
 
             <img src={img} alt={imgAlt} />
@@ -11,11 +17,9 @@ export default function ElementFrise({ img, imgAlt, titre, annee, onClick }) {
             <div className='contenu'>
                 <h3>{annee}</h3>
                 <h2>{titre}</h2>
-
-                {/* <p>{desc}</p> */}
             </div>
         </div>
-    )
+    );
 }
 
 ElementFrise.propTypes = {
@@ -23,11 +27,6 @@ ElementFrise.propTypes = {
     imgAlt: PropTypes.string,
     titre: PropTypes.string.isRequired,
     annee: PropTypes.string.isRequired,
-    // desc: PropTypes.string.isRequired,
-    
     onClick: PropTypes.func.isRequired,
-};
-
-ElementFrise.defaultProps = {
-    imgAlt: "Monument Malgré-nous",
+    dataAos: PropTypes.string, // Assure-toi d'ajouter cela
 };
